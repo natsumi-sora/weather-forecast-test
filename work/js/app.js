@@ -50,10 +50,10 @@ document.getElementById("get-weather").addEventListener("click", () => {
         const todayHighTemp = tempData?.temps?.[0];
         const todayLowTemp = tempData?.temps?.[1];
   
-        document.getElementById("todayHighTemperature").lastElementChild.textContent =
+        document.getElementById("todayLowTemperature").lastElementChild.textContent =
           todayHighTemp ? `${parseFloat(todayHighTemp).toFixed(1)}℃` : "情報なし";
   
-        document.getElementById("todayLowTemperature").lastElementChild.textContent =
+        document.getElementById("todayHighTemperature").lastElementChild.textContent =
           todayLowTemp ? `${parseFloat(todayLowTemp).toFixed(1)}℃` : "情報なし";
   
         // 明日と明後日の天気情報
