@@ -26,7 +26,7 @@ document.getElementById("get-weather").addEventListener("click", () => {
         }
   
         const areaData = timeSeries[0]?.areas?.[0];
-        const tempData = timeSeries[2]?.areas?.[0]; 
+        const tempData = timeSeries[2]?.areas?.[0];
         const timeDefines = timeSeries[0]?.timeDefines;
   
         if (!areaData || !tempData) {
@@ -46,11 +46,14 @@ document.getElementById("get-weather").addEventListener("click", () => {
         document.getElementById("today").lastElementChild.textContent =
           areaData?.weathers?.[0] || "情報なし";
   
-        document.getElementById("todayHighTemperature").lastElementChild.textContent =
-          tempData?.temps?.[0] || "情報なし";
+        const todayHighTemp = tempData?.temps?.[0];
+        const todayLowTemp = tempData?.temps?.[1];
   
         document.getElementById("todayLowTemperature").lastElementChild.textContent =
-          tempData?.temps?.[1] || "情報なし";
+          todayHighTemp ? `${parseFloat(todayHighTemp).toFixed(1)}℃` : "情報なし";
+  
+        document.getElementById("todayHighTemperature").lastElementChild.textContent =
+          todayLowTemp ? `${parseFloat(todayLowTemp).toFixed(1)}℃` : "情報なし";
   
         document.getElementById("tomorrow").lastElementChild.textContent =
           areaData?.weathers?.[1] || "情報なし";
